@@ -1,0 +1,57 @@
+---
+title: "6. Linear Model"
+output:
+  html_document:
+    df_print: paged
+---
+
+To evaluate the gunners' performance after the ball is caught, I will be adding the *squeezeDis*, *tackle*, and *missedTackle* variables to a linear model. The previous variables discussed will still be included because they will have an impact on return yards. This model will attempt to predict how many return yards a gunner will give up in the event that the ball is returned.
+
+## 6.1 Imports
+```{r message=FALSE, warning=FALSE}
+source("E:/R Projects/gunner_evaluation/R/00_source.R")
+
+library(tidyverse)
+library(car)
+library(MASS)
+
+specialistData <- read.csv(paste0(wd$data, 'specialist_data.csv'), 
+                           na.strings = c('NA', NA, '', ' '))
+
+# subset data to only returns
+returns <- specialistData[which(specialistData$specialTeamsResult == 'Return'), ]
+```
+
+## 6.2 Model Creation
+To help select the best model, I used forward stepwise selection to pick out the features with the most predictive power. These turned out to be *timeToBeatVise*, *disFromReturner*, *speedDev*, *squeezeDis* , *disFromLOS*, and *missedTackle*.
+```{r}
+fullModel <- lm(returnYds ~ timeToBeatVise + disFromLOS + disFromReturner + topSpeed + squeezeDis + missedTackle + speedDev + release + correctRelease,
+                data = na.omit(returns))
+
+nullModel <- lm(returnYds ~ 1, data = na.omit(returns))
+
+stepAIC(nullModel, scope = list(lower = nullModel, upper = fullModel), k = 2, direction = "forward")
+```
+
+```{r}
+fSelectedAIC <- lm(returnYds ~ timeToBeatVise + disFromReturner + speedDev + 
+                     squeezeDis + disFromLOS + missedTackle, 
+                   data = na.omit(returns))
+```
+
+## 6.3 Model Evaluation
+
+### 6.3.1 Checking For Collinearity
+The model selected both *disFromReturner* and *disFromLOS*. Due to these measurements being similar in nature, they may have collinearity issues. We can see if this is an issue by measuring each variables' Variable Inflation Factor (VIF). Since each variables' VIF is close to one, we can say that there are no collinearity issues with any of the variables in the model. 
+```{r}
+car::vif(fSelectedAIC)
+```
+
+### 6.3.2 Summarizing Model
+Due to their low p-values, each variable appears to be highly significant. However, the model's adjusted $R^{2}$ is very low at 0.1235. This means that the model can only account for 12.35% of the variability in the data. The low adjusted $R^{2}$ combined with the significant variables tells me that the variables selected have predictive power, but more variables need to be included in the model to improve accuracy.
+```{r}
+summary(fSelectedAIC)
+```
+
+## 6.4 Conclusion
+I do not believe the model performs well enough to be implemented by front offices. However, all of the variables selected are to be significant. These variables could be used by themselves to gauge gunner performance and guide decisions.

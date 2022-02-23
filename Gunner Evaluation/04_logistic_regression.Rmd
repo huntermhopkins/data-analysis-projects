@@ -1,0 +1,129 @@
+---
+title: "4. Logistic Model"
+output:
+  html_document:
+    df_print: paged
+---
+
+The models I create will be attempting to evaluate the gunners in two separate categories: before the catch and after the catch. To evaluate the gunners before the catch, I will be looking at the variables *timeToBeatVise*, *disFromReturner*, *disFromLOS*, *release*, *correctRelease*, *topSpeed*, and *speedDev*. Using these variables, the model will attempt to predict the probability of each gunner causing a fair catch.
+
+## 4.1 Imports
+```{r message=FALSE, warning=FALSE}
+source("E:/R Projects/gunner_evaluation/R/00_source.R")
+
+library(tidyverse)
+library(caret)
+library(car)
+library(MASS)
+
+specialistData <- read.csv(paste0(wd$data, 'specialist_data.csv'), na.strings = c('NA', NA, '', ' '))
+```
+
+## 4.2 Change Variables to Factors
+```{r}
+specialistData$fairCatch <- ifelse(specialistData$specialTeamsResult == 'Fair Catch', 1, 0)
+
+specialistData$correctRelease <- as.factor(specialistData$correctRelease)
+specialistData$release <- as.factor(specialistData$release)
+```
+
+## 4.3 Subset Data to Only Include First Man Down
+There are two gunners in each play, but only one result. One gunner might perform poorly during a play, but the play still ends in a fair catch due to the other gunner's effort. To avoid this, I will only train the model on the gunners that were the first man down.
+```{r}
+FMDData <- specialistData %>% filter(firstManDown == 1)
+
+# remove NAs
+FMDData <- FMDData[complete.cases(FMDData[c('timeToBeatVise', 'returnYds')]), ]
+```
+
+## 4.4 Create Models
+The variables in the model were selected using forward stepwise selection with AIC as the criterion. This helps pick out the variables with the most predictive power. These ended up being *timeToBeatVise*, *disFromReturner*, *disFromLOS*, and *topSpeed*
+```{r}
+# create full model
+FMDLogitFull <- glm(fairCatch ~ timeToBeatVise + disFromReturner + disFromLOS + release + correctRelease + topSpeed + speedDev, 
+                    data = FMDData, 
+                    family = 'binomial')
+
+# null model
+FMDLogitNull <- glm(fairCatch ~ 1, data = FMDData, family = 'binomial')
+
+# select vars with forward stepwise selection (AIC)
+stepAIC(FMDLogitNull, scope = list(lower = FMDLogitNull, upper = FMDLogitFull), 
+        k = 2, direction = "forward")
+
+fSelectedLogitAIC <- glm(fairCatch ~ timeToBeatVise + disFromReturner + disFromLOS + topSpeed, 
+                    family = "binomial", 
+                    data = FMDData)
+```
+
+When using BIC as the criterion, which is more conservative, the *topSpeed* variable is dropped.
+```{r}
+stepAIC(FMDLogitNull, scope = list(lower = FMDLogitNull, upper = FMDLogitFull), 
+        k = log(nrow(FMDData)), direction = "forward")
+```
+
+```{r}
+fSelectedLogitBIC <- glm(fairCatch ~ timeToBeatVise + disFromReturner + disFromLOS, 
+                         family = "binomial", 
+                         data = FMDData)
+```
+
+## 4.5 Compare Models
+
+### 4.5.1 Model Summaries
+The model selected with AIC has lower deviance values and a lower AIC. Therefore it is a better model.
+```{r}
+summary(fSelectedLogitAIC)
+```
+
+```{r}
+summary(fSelectedLogitBIC)
+```
+
+### 4.5.2 Likelihood Ratio Test
+Because the two models are hierarchical, a Likelihood Ratio Test can be used to compare the models. The test shows that the p-value is 0.0444. This means the null hypothesis can be rejected at a .05 significance level, suggesting that the complex model (AIC) provides a better fit to the data.
+```{r}
+lmtest::lrtest(fSelectedLogitBIC, fSelectedLogitAIC)
+```
+
+
+## 4.6 Evaluate Model
+The model's accuracy can be estimated by splitting the data into a testing and training set. The model is trained on the training set. Once the model is developed, it attempts to classify each observation in the testing set as either a fair catch or not a fair catch. This can then be compared to the actual classification of each observation to estimate the model's accuracy. This is repeated using k-fold cross validation to test the model on several different testing and training sets. This allows for a more accurate estimation.
+
+The final estimated accuracy of the model is about 75.45%.
+```{r}
+set.seed(60)
+
+k <- 10
+kFoldAccuracy <- numeric(k)
+CVFolds <- createFolds(FMDData$fairCatch, k=k, returnTrain = T)
+
+for (i in 1:k) {
+  folds <- CVFolds[[i]]
+  train <- FMDData[folds, ]
+  valid <- FMDData[-folds, ]
+  
+fSelectedLogitAIC <- glm(fairCatch ~ timeToBeatVise + disFromReturner + disFromLOS + topSpeed, 
+                    family = "binomial", 
+                    data = FMDData)
+  
+  fitted.results <- predict(fSelectedLogitAIC,newdata = valid,type = 'response')
+  fitted.results <- ifelse(fitted.results > 0.5,1,0)
+  misClasificError <- mean(fitted.results != valid$fairCatch)
+  
+  kFoldAccuracy[i] <- 1 - misClasificError
+  
+}
+
+mean(kFoldAccuracy)
+```
+
+## 4.7 Conclusion
+The model is not superbly accurate. However, I believe it is accurate enough to provide useful insights, and be used in conjunction with a coach's or general manager's intuition.
+
+
+## 4.8 Write to .CSV
+```{r}
+write.csv(FMDData, file = paste0(wd$data, 'FMD_data.csv'), row.names = FALSE)
+```
+
