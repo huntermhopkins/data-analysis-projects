@@ -26,8 +26,12 @@ The NFL uses [Next Gen Stats](https://operations.nfl.com/gameday/technology/nfl-
     * plays.csv: play-level information from each game.
     * games.csv: contains the teams playing in each game.
     * PFFScoutingData.csv: play-level scouting information provided by [PFF](https://www.pff.com/).
-    * punt_play_info.csv: additional processed play-level information
-    
+    * punt_play_info.csv: additional processed play-level information.
+    * punt_plays.csv: combination of tracking data, play data, game data, and PFF data for punt plays.
+    * specialist_data.csv: derived features for gunners and some play-level information.
+    * FMD_data.csv: subset of specialist_data.csv containing only the first gunner down the field. Used for training model.
+    * gunner_stats_FCP.csv: logistic model results showing the probability of a gunner causing a fair catch.
+    * gunner_stats_exYds.csv: linear model results showing the expected return yards for each gunner.
   
 </details>
 
