@@ -20,9 +20,12 @@ The NFL uses [Next Gen Stats](https://operations.nfl.com/gameday/technology/nfl-
   <summary> Show/Hide</summary>
   
   * [data](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/data) : folder containing all data files
-    * 00_trackingData2018.csv: tracking data for all punt plays during the 2018 NFL season
-    * 01_trackingData2019.csv: tracking data for all punt plays during the 2019 NFL season
-    * 02_trackingData2020.csv: tracking data for all punt plays during the 2020 NFL season
+    * trackingData2018.csv: tracking data for all punt plays during the 2018 NFL season.
+    * trackingData2019.csv: tracking data for all punt plays during the 2019 NFL season.
+    * trackingData2020.csv: tracking data for all punt plays during the 2020 NFL season.
+    * plays.csv: play-level information from each game.
+    * games.csv: contains the teams playing in each game.
+    * PFFScoutingData.csv: contains play-level scouting information provided by [PFF](https://www.pff.com/).
   
 </details>
 
