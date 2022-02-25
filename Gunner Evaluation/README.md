@@ -8,9 +8,11 @@ The NFL uses [Next Gen Stats](https://operations.nfl.com/gameday/technology/nfl-
 # Table of Contents
 <details>
   <summary> Show/Hide</summary>
+  
   1. File Descriptions
   2. Structure of Notebooks
   3. Executive Summary
+  
 </details>
 
 # File Descriptions
