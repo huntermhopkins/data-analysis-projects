@@ -25,7 +25,9 @@ The NFL uses [Next Gen Stats](https://operations.nfl.com/gameday/technology/nfl-
     * trackingData2020.csv: tracking data for all punt plays during the 2020 NFL season.
     * plays.csv: play-level information from each game.
     * games.csv: contains the teams playing in each game.
-    * PFFScoutingData.csv: contains play-level scouting information provided by [PFF](https://www.pff.com/).
+    * PFFScoutingData.csv: play-level scouting information provided by [PFF](https://www.pff.com/).
+    * punt_play_info.csv: additional processed play-level information
+    
   
 </details>
 
