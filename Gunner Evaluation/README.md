@@ -9,9 +9,9 @@ The NFL uses [Next Gen Stats](https://operations.nfl.com/gameday/technology/nfl-
 <details>
   <summary> Show/Hide</summary>
   
-  1. File Descriptions
-  2. Structure of Notebooks
-  3. Executive Summary
+  1. [File Descriptions] (https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/README.md#file-descriptions)
+  2. [Structure of Notebooks] (https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/README.md#structure-of-notebooks)
+  3. [Executive Summary] (https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/README.md#executive-summary)
   
 </details>
 
