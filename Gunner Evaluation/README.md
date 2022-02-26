@@ -12,7 +12,7 @@ Gunners are fielded during punt plays. Teams will most often punt the ball on th
 
 These two positions engage in a physical battle every play. It entails pushing, pulling, and grabbing at each other all while running at top speed. An example can be seen below.
 
-![alt text](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/gunner_video.mp4)
+![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/gunner_example.gif)
 
 # Table of Contents
 <details open>
