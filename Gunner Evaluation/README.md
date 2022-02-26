@@ -53,6 +53,28 @@ Notice the gunner in the white jersey at the top of the screen make his way past
 <details>
   <summary> Show/Hide</summary>
   
+  * 0. Functions
+    * 0.1 Animate Random Play
+    * 0.2 Animate Play
+    * 0.3 Find Euclidean Distance
+    * 0.4 Find Substring From End of String
+  * 1. Combining Data and Early Cleaning
+    * 1.1 Importing 2018 Data
+    * 1.2 Clean 2018 Punt Plays
+      * 1.2.1 Exploring How Many Gunners, Jammers, and Returners are Usually Fielded
+      * 1.2.2 Condense Play Selection
+      * 1.2.3 Remove Rows with NAs in Certain Columns
+      * 1.2.4 Flip Plays
+      * 1.2.5 Add *teamAbbr* Variable
+      * 1.2.6 Set The Return Yards to Zero on Plays That Resulted in a Fair Catch
+  * 2. Gathering Play Information
+    * 2.1 Imports
+    * 2.2 Create New Dataframe to Store Important Play Information
+    * 2.3 Fill *snapFrame*, *catchFrame*, and *ballCatchRow* Columns
+    * 2.4 Fill *kickDir* Column
+    * 2.5 Fill *returnYds* and *specialTeamResult* Columns
+    * 2.6 Write to .csv
+  
 </details>
 
 # Executive Summary
