@@ -19,19 +19,22 @@ The NFL uses [Next Gen Stats](https://operations.nfl.com/gameday/technology/nfl-
 <details>
   <summary> Show/Hide</summary>
   
-  * [data](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/data): folder containing all data files
-    * trackingData2018.csv: tracking data for all punt plays during the 2018 NFL season.
-    * trackingData2019.csv: tracking data for all punt plays during the 2019 NFL season.
-    * trackingData2020.csv: tracking data for all punt plays during the 2020 NFL season.
-    * plays.csv: play-level information from each game.
-    * games.csv: contains the teams playing in each game.
-    * PFFScoutingData.csv: play-level scouting information provided by [PFF](https://www.pff.com/).
-    * punt_play_info.csv: additional processed play-level information.
-    * punt_plays.csv: combination of tracking data, play data, game data, and PFF data for punt plays.
-    * specialist_data.csv: derived features for gunners and some play-level information.
-    * FMD_data.csv: subset of specialist_data.csv containing only the first gunner down the field. Used for training model.
-    * gunner_stats_FCP.csv: logistic model results showing the probability of a gunner causing a fair catch.
-    * gunner_stats_exYds.csv: linear model results showing the expected return yards for each gunner.
+  * [data](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/data): Folder containing all data files
+    * trackingData2018.csv: Tracking data for all special team plays during the 2018 NFL season.
+    * trackingData2019.csv: Tracking data for all special team during the 2019 NFL season.
+    * trackingData2020.csv: Tracking data for all special team during the 2020 NFL season.
+    * plays.csv: Play-level information from each game.
+    * games.csv: Contains the teams playing in each game.
+    * PFFScoutingData.csv: Play-level scouting information provided by [PFF](https://www.pff.com/).
+    * punt_play_info.csv: Additional processed play-level information.
+    * punt_plays.csv: Combination of tracking data, play data, game data, and PFF data for punt plays.
+    * specialist_data.csv: Derived features for gunners and some play-level information.
+    * FMD_data.csv: Subset of specialist_data.csv containing only the first gunner down the field. Used for training model.
+    * gunner_stats_FCP.csv: Logistic model results showing the probability of a gunner causing a fair catch.
+    * gunner_stats_exYds.csv: Linear model results showing the expected return yards for each gunner.
+  * [images](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/images): Player headshots used in plots.
+  * [notebooks](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/notebooks): R notebooks overviewing analysis process and code.
+  * [output](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/output): Model outputs and plots.
   
 </details>
 
