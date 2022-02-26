@@ -53,11 +53,12 @@ Notice the gunner in the white jersey at the top of the screen make his way past
 <details>
   <summary> Show/Hide</summary>
   
+  
   0. Functions
-  * 0.1 Animate Random Play
-  * 0.2 Animate Play
-  * 0.3 Find Euclidean Distance
-  * 0.4 Find Substring From End of String
+    * 0.1 Animate Random Play
+    * 0.2 Animate Play
+    * 0.3 Find Euclidean Distance
+    * 0.4 Find Substring From End of String
   
   1. Combining Data and Early Cleaning
   
