@@ -55,6 +55,7 @@ Notice the gunner in the white jersey at the top of the screen make his way past
   
   
   0. Functions
+  
     * 0.1 Animate Random Play
     * 0.2 Animate Play
     * 0.3 Find Euclidean Distance
