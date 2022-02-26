@@ -54,11 +54,10 @@ Notice the gunner in the white jersey at the top of the screen make his way past
   <summary> Show/Hide</summary>
   
   0. Functions
-  
-    * 0.1 Animate Random Play
-    * 0.2 Animate Play
-    * 0.3 Find Euclidean Distance
-    * 0.4 Find Substring From End of String
+  * 0.1 Animate Random Play
+  * 0.2 Animate Play
+  * 0.3 Find Euclidean Distance
+  * 0.4 Find Substring From End of String
   
   1. Combining Data and Early Cleaning
   
@@ -72,40 +71,39 @@ Notice the gunner in the white jersey at the top of the screen make his way past
     * 1.2.6 Set The Return Yards to Zero on Plays That Resulted in a Fair Catch
   
   2. Gathering Play Information
-  
-    * 2.1 Imports
-    * 2.2 Create New Dataframe to Store Important Play Information
-    * 2.3 Fill *snapFrame*, *catchFrame*, and *ballCatchRow* Columns
-    * 2.4 Fill *kickDir* Column
-    * 2.5 Fill *returnYds* and *specialTeamsResult* Columns
-    * 2.6 Write to .csv
+  <br>
+   * 2.1 Imports
+   * 2.2 Create New Dataframe to Store Important Play Information
+   * 2.3 Fill *snapFrame*, *catchFrame*, and *ballCatchRow* Columns
+   * 2.4 Fill *kickDir* Column
+   * 2.5 Fill *returnYds* and *specialTeamsResult* Columns
+   * 2.6 Write to .csv
   
   3. Collecting Gunner Data (Feature Engineering)
-  
-    * 3.1 Imports
-    * 3.2 Create New Dataframe to Store Gunner Data
-    * 3.3 Store Identifying Information for Gunners and Jammers
-      * 3.3.1 Remove Plays with Missing Player IDs
-    * 3.4 Remove Odd Plays
-    * 3.5 Match Gunners to Jammer Defending Them
-    * 3.6 Fill *returnYds* and *specialTeamsResult* Columns
-    * 3.7 Fill *timeToBeatVise* Column
-    * 3.8 Fill *firstManDown* Column
-    * 3.9 Fill *disFromLOS* Column
-    * 3.10 Fill *disFromReturner* Column
-    * 3.11 Fill *speedDev* Column
-    * 3.12 Fill *topSpeed* Column
-    * 3.13 Fill *squeezeDis* Column
-    * 3.14 Record if Gunner Made a Tackle
-    * 3.15 Record if Gunner Missed a Tackle
-    * 3.16 Record Gunner Release Types
-      * 3.16.1 Record Which Side of the Field Each Gunner is Lined Up
-      * 3.16.2 Classify as Inside or Outside
-      * 3.16.3 Record Kick Direction Relative to Gunner's Position
-      * 3.16.4 Categorize Each Release Type
-      * 3.16.5 Categorize Each Release as Correct or Incorrect
-    * 3.17 Remove Unnecessary Variables
-    * 3.18 Write to .csv
+   * 3.1 Imports
+   * 3.2 Create New Dataframe to Store Gunner Data
+   * 3.3 Store Identifying Information for Gunners and Jammers
+     * 3.3.1 Remove Plays with Missing Player IDs
+   * 3.4 Remove Odd Plays
+   * 3.5 Match Gunners to Jammer Defending Them
+   * 3.6 Fill *returnYds* and *specialTeamsResult* Columns
+   * 3.7 Fill *timeToBeatVise* Column
+   * 3.8 Fill *firstManDown* Column
+   * 3.9 Fill *disFromLOS* Column
+   * 3.10 Fill *disFromReturner* Column
+   * 3.11 Fill *speedDev* Column
+   * 3.12 Fill *topSpeed* Column
+   * 3.13 Fill *squeezeDis* Column
+   * 3.14 Record if Gunner Made a Tackle
+   * 3.15 Record if Gunner Missed a Tackle
+   * 3.16 Record Gunner Release Types
+     * 3.16.1 Record Which Side of the Field Each Gunner is Lined Up
+     * 3.16.2 Classify as Inside or Outside
+     * 3.16.3 Record Kick Direction Relative to Gunner's Position
+     * 3.16.4 Categorize Each Release Type
+     * 3.16.5 Categorize Each Release as Correct or Incorrect
+   * 3.17 Remove Unnecessary Variables
+   * 3.18 Write to .csv
   
   4. 
 </details>
