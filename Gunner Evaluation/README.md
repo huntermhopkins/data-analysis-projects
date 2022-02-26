@@ -54,12 +54,14 @@ Notice the gunner in the white jersey at the top of the screen make his way past
   <summary> Show/Hide</summary>
   
   0. Functions
+  
     * 0.1 Animate Random Play
     * 0.2 Animate Play
     * 0.3 Find Euclidean Distance
     * 0.4 Find Substring From End of String
   
   1. Combining Data and Early Cleaning
+  
     * 1.1 Importing 2018 Data
     * 1.2 Clean 2018 Punt Plays
     * 1.2.1 Exploring How Many Gunners, Jammers, and Returners are Usually Fielded
@@ -70,6 +72,7 @@ Notice the gunner in the white jersey at the top of the screen make his way past
     * 1.2.6 Set The Return Yards to Zero on Plays That Resulted in a Fair Catch
   
   2. Gathering Play Information
+  
     * 2.1 Imports
     * 2.2 Create New Dataframe to Store Important Play Information
     * 2.3 Fill *snapFrame*, *catchFrame*, and *ballCatchRow* Columns
@@ -78,6 +81,7 @@ Notice the gunner in the white jersey at the top of the screen make his way past
     * 2.6 Write to .csv
   
   3. Collecting Gunner Data (Feature Engineering)
+  
     * 3.1 Imports
     * 3.2 Create New Dataframe to Store Gunner Data
     * 3.3 Store Identifying Information for Gunners and Jammers
