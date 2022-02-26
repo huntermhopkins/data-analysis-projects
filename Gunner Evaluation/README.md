@@ -155,7 +155,7 @@ Notice the gunner in the white jersey at the top of the screen make his way past
 </details>
 
 # Executive Summary
-<details>
+<details open>
 <summary>Show/Hide</summary>
 <br>
   
