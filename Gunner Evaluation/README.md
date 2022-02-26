@@ -60,57 +60,103 @@ Notice the gunner in the white jersey at the top of the screen make his way past
     * 0.3 Find Euclidean Distance
     * 0.4 Find Substring From End of String
   
-  1. Combining Data and Early Cleaning
-  
+1. Combining Data and Early Cleaning
     * 1.1 Importing 2018 Data
     * 1.2 Clean 2018 Punt Plays
-    * 1.2.1 Exploring How Many Gunners, Jammers, and Returners are Usually Fielded
-    * 1.2.2 Condense Play Selection
-    * 1.2.3 Remove Rows with NAs in Certain Columns
-    * 1.2.4 Flip Plays
-    * 1.2.5 Add *teamAbbr* Variable
-    * 1.2.6 Set The Return Yards to Zero on Plays That Resulted in a Fair Catch
+      * 1.2.1 Exploring How Many Gunners, Jammers, and Returners are Usually Fielded
+      * 1.2.2 Condense Play Selection
+      * 1.2.3 Remove Rows with NAs in Certain Columns
+      * 1.2.4 Flip Plays
+      * 1.2.5 Add *teamAbbr* Variable
+      * 1.2.6 Set The Return Yards to Zero on Plays That Resulted in a Fair Catch
   
-  2. Gathering Play Information
-  <br>
-   * 2.1 Imports
-   * 2.2 Create New Dataframe to Store Important Play Information
-   * 2.3 Fill *snapFrame*, *catchFrame*, and *ballCatchRow* Columns
-   * 2.4 Fill *kickDir* Column
-   * 2.5 Fill *returnYds* and *specialTeamsResult* Columns
-   * 2.6 Write to .csv
+2. Gathering Play Information
+    * 2.1 Imports
+    * 2.2 Create New Dataframe to Store Important Play Information
+    * 2.3 Fill *snapFrame*, *catchFrame*, and *ballCatchRow* Columns
+    * 2.4 Fill *kickDir* Column
+    * 2.5 Fill *returnYds* and *specialTeamsResult* Columns
+    * 2.6 Write to .csv
   
-  3. Collecting Gunner Data (Feature Engineering)
-   * 3.1 Imports
-   * 3.2 Create New Dataframe to Store Gunner Data
-   * 3.3 Store Identifying Information for Gunners and Jammers
-     * 3.3.1 Remove Plays with Missing Player IDs
-   * 3.4 Remove Odd Plays
-   * 3.5 Match Gunners to Jammer Defending Them
-   * 3.6 Fill *returnYds* and *specialTeamsResult* Columns
-   * 3.7 Fill *timeToBeatVise* Column
-   * 3.8 Fill *firstManDown* Column
-   * 3.9 Fill *disFromLOS* Column
-   * 3.10 Fill *disFromReturner* Column
-   * 3.11 Fill *speedDev* Column
-   * 3.12 Fill *topSpeed* Column
-   * 3.13 Fill *squeezeDis* Column
-   * 3.14 Record if Gunner Made a Tackle
-   * 3.15 Record if Gunner Missed a Tackle
-   * 3.16 Record Gunner Release Types
-     * 3.16.1 Record Which Side of the Field Each Gunner is Lined Up
-     * 3.16.2 Classify as Inside or Outside
-     * 3.16.3 Record Kick Direction Relative to Gunner's Position
-     * 3.16.4 Categorize Each Release Type
-     * 3.16.5 Categorize Each Release as Correct or Incorrect
-   * 3.17 Remove Unnecessary Variables
-   * 3.18 Write to .csv
+3. Collecting Gunner Data (Feature Engineering)
+    * 3.1 Imports
+    * 3.2 Create New Dataframe to Store Gunner Data
+    * 3.3 Store Identifying Information for Gunners and Jammers
+      * 3.3.1 Remove Plays with Missing Player IDs
+    * 3.4 Remove Odd Plays
+    * 3.5 Match Gunners to Jammer Defending Them
+    * 3.6 Fill *returnYds* and *specialTeamsResult* Columns
+    * 3.7 Fill *timeToBeatVise* Column
+    * 3.8 Fill *firstManDown* Column
+    * 3.9 Fill *disFromLOS* Column
+    * 3.10 Fill *disFromReturner* Column
+    * 3.11 Fill *speedDev* Column
+    * 3.12 Fill *topSpeed* Column
+    * 3.13 Fill *squeezeDis* Column
+    * 3.14 Record if Gunner Made a Tackle
+    * 3.15 Record if Gunner Missed a Tackle
+    * 3.16 Record Gunner Release Types
+      * 3.16.1 Record Which Side of the Field Each Gunner is Lined Up
+      * 3.16.2 Classify as Inside or Outside
+      * 3.16.3 Record Kick Direction Relative to Gunner's Position
+      * 3.16.4 Categorize Each Release Type
+      * 3.16.5 Categorize Each Release as Correct or Incorrect
+    * 3.17 Remove Unnecessary Variables
+    * 3.18 Write to .csv
   
-  4. 
+4. Logistic Model
+    * 4.1 Imports
+    * 4.2 Change Variables to Factors
+    * 4.3 Subset Data to Only Include First Man Down
+    * 4.4 Create Models
+    * 4.5 Compare Models
+      * 4.5.1 Model Summaries
+      * 4.5.2 Likelihood Ratio Test
+    * 4.6 Evaluate Model
+    * 4.7 Conclusion
+    * 4.8 Write to .csv
+
+5. Visualizing Logistic Model Results
+    * 5.1 Imports
+    * 5.2 Record Model Results
+      * 5.2.1 Create Dataframe to Store Gunner Data
+      * 5.2.2 Record Gunner Averages
+      * 5.2.3 Predict Probability of Causing a Fair Catch Based on Averages
+      * 5.2.4 Filter to Gunners Who Played in at Least 30 Plays
+    * 5.3 Visualization
+    * 5.4 Write to .csv
+    * 5.5 Save Plot
+ 
+6. Linear Model
+    * 6.1 Imports
+    * 6.2 Model Creation
+    * 6.3 Model Evaulation
+      * 6.3.1 Checking For Collinearity
+      * 6.3.2 Summarizing Model
+    * 6.4 Conclusion
+  
+
+7. Visualizing Logistic Model Results
+    * 7.1 Imports
+    * 7.2 Record Model Results
+      * 7.2.1 Create Dataframe to Store Gunner Data
+      * 7.2.2 Record Gunner Averages
+      * 7.2.3 Predict Expected Yards Given Up Based on Averages
+      * 7.2.4 Filter to Gunners Who Played in at Least 30 Plays
+    * 7.3 Visualization
+    * 7.4 Write to .csv
+    * 7.5 Save Plot
+  
+8. Visualizing Combined Results
+    * 8.1 Imports
+    * 8.2 Inverse Fair Catch Probability
+    * 8.3 Visualization
+    * 8.4 Save Plot
 </details>
 
 # Executive Summary
 <details>
-  <summary> Show/Hide</summary>
+<summary>Show/Hide</summary>
+<br>
   
 </details>
