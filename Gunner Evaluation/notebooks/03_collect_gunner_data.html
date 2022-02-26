@@ -185,7 +185,7 @@ library(tidyverse)</code></pre>
 <pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>puntPlays &lt;- read.csv(paste0(wd$data, &#39;punt_plays1.csv&#39;))
+<pre class="r"><code>puntPlays &lt;- read.csv(paste0(wd$data, &#39;punt_plays.csv&#39;))
 puntPlayInfo &lt;- read.csv(paste0(wd$data, &#39;punt_play_info.csv&#39;))</code></pre>
 </div>
 <div id="create-new-dataframe-to-store-gunner-data" class="section level2">
@@ -267,7 +267,7 @@ puntPlayInfo &lt;- read.csv(paste0(wd$data, &#39;punt_play_info.csv&#39;))</code
   </script>
 </div>
 <div id="remove-plays-with-missing-player-ids" class="section level3">
-<h3>3.3.1 Remove Plays with Missing Player IDs</h3>
+<h3>3.3.1 Remove Plays With Missing Player IDs</h3>
 <p>There were some instances where a gunner would be listed, say ‘CLE 27’, in the PFF data, but there would be no #27 for Cleveland in the tracking data. These plays were removed.</p>
 <pre class="r"><code>missingIDs &lt;- which(is.na(specialistData$gunnerId) | is.na(specialistData$viseId))
 gameID &lt;- specialistData$gameId
@@ -291,8 +291,8 @@ sum(is.na(specialistData$gunnerId))</code></pre>
 <p>There were 3 odd plays that I’d noticed in the data. One play had 2 jammers fielded, but they were both lined up on the same side of the field. Another play listed 2 jammers, but clearly had 3 jammers fielded. Finally, the other play’s tracking data began after the ball was snapped. These plays were removed.</p>
 <pre class="r"><code>specialistData &lt;- specialistData[-c(2049:2050, 2673:2674, 3943:3944), ]</code></pre>
 </div>
-<div id="match-gunners-to-jammer-guarding-them" class="section level2">
-<h2>3.5 Match Gunners to Jammer Guarding them</h2>
+<div id="match-gunners-to-jammer-defending-them" class="section level2">
+<h2>3.5 Match Gunners to Jammer Defending Them</h2>
 <p>I have each gunner and jammer from each play, but they might not be lined up correctly. I want the dataframe to be set up such that the jammer in row n is defending the gunner in row n during that play. This is possible by finding the distance between a gunner to each jammer, and moving them to the same row as the jammer they are closer to. This will make calculations in the future easier.</p>
 <pre class="r"><code>for (i in seq(1, nrow(specialistData), 2)) {
   gunnerID &lt;- specialistData$gunnerId[i]
@@ -650,8 +650,8 @@ specialistData$missedTackle &lt;- missedTackle</code></pre>
 <div id="record-gunner-release-types" class="section level2">
 <h2>3.16 Record Gunner Release Types</h2>
 <p>A release is essentially how the gunner moves off of the line of scrimmage. This can be classified in two ways. One way is either an inside or outside release. An inside release is when the gunner begins moving towards the center of the field, and an outside release is when they start moving towards the sideline. Another way I classified each gunner’s release was as correct or incorrect. A correct release would be releasing in the direction that gives the gunner the most direct route to the ball.</p>
-<div id="record-which-side-of-the-field-each-gunner-is-lined-up." class="section level3">
-<h3>3.16.1 Record Which Side of the Field Each Gunner is Lined Up.</h3>
+<div id="record-which-side-of-the-field-each-gunner-is-lined-up" class="section level3">
+<h3>3.16.1 Record Which Side of the Field Each Gunner Is Lined Up</h3>
 <pre class="r"><code>for (i in seq(1, nrow(specialistData), 2)) {
   play &lt;- puntPlays %&gt;% filter(gameId == specialistData$gameId[i] &amp;
                                playId == specialistData$playId[i])

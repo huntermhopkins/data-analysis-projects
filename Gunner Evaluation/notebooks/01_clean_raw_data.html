@@ -207,7 +207,7 @@ mergedData &lt;- trackingData %&gt;%
   </script>
 </div>
 <div id="exploring-how-many-gunners-jammers-and-returners-are-usually-fielded" class="section level3">
-<h3>1.2.1 Exploring How Many Gunners, Jammers, and Returners are Usually Fielded</h3>
+<h3>1.2.1 Exploring How Many Gunners, Jammers, and Returners Are Usually Fielded</h3>
 <p>Since the players in each position (gunner, jammer, returner) are separated by a semi-colon, the number of players can be found by counting the number of semi-colons and adding one. Here we can see that most plays feature 2 gunners, 2 jammers, and 1 returner. For simplicity, I will only be looking at these plays in my analysis.</p>
 <pre class="r"><code>ggplot(data=PFFData, aes(x=str_count(gunners, &#39;;&#39;) + 1)) +
   geom_bar(stat=&quot;count&quot;, fill = &quot;steelblue&quot;) +
@@ -235,7 +235,7 @@ mergedData &lt;- trackingData %&gt;%
                                     str_count(returnerId, &#39;;&#39;) == 0))</code></pre>
 </div>
 <div id="remove-rows-with-nas-in-certain-columns" class="section level3">
-<h3>1.2.3 Remove Rows with NAs in Certain Columns</h3>
+<h3>1.2.3 Remove Rows With NAs in Certain Columns</h3>
 <p>Later in the analysis, I will need to know at which point the ball is caught. This is possible using the <em>event</em> variable. This variable designates if an important event happened at the frame e.g., “fair_catch”, “punt_received”, “punt_land”. However, there are some plays where none of these events are listed. To estimate when the ball is caught, I can add the <em>operationTime</em> and <em>hangTime</em> variables to the frame that the ball was snapped. Because these variables are needed, I will remove any rows that contain an NA value in these columns.</p>
 <pre class="r"><code>sapply(puntPlays[c(&quot;operationTime&quot;, &quot;hangTime&quot;)], 
        function(x) sum(is.na(x)))</code></pre>

@@ -185,7 +185,7 @@ library(tidyverse)</code></pre>
 <pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>puntPlays &lt;- read.csv(paste0(wd$data, &#39;punt_plays1.csv&#39;))</code></pre>
+<pre class="r"><code>puntPlays &lt;- read.csv(paste0(wd$data, &#39;punt_plays.csv&#39;))</code></pre>
 </div>
 <div id="create-new-dataframe-to-store-important-play-information" class="section level2">
 <h2>2.2 Create New Dataframe to Store Important Play Information</h2>
@@ -268,8 +268,8 @@ table(ballSnapFrame)</code></pre>
   </script>
 </div>
 </div>
-<div id="fill-returnyds-and-specialteamresult-columns" class="section level2">
-<h2>2.5 Fill <em>returnYds</em> and <em>specialTeamResult</em> Columns</h2>
+<div id="fill-returnyds-and-specialteamsresult-columns" class="section level2">
+<h2>2.5 Fill <em>returnYds</em> and <em>specialTeamsResult</em> Columns</h2>
 <pre class="r"><code>returnYds &lt;- numeric(nrow(puntPlayInfo))
 for (i in 1:nrow(puntPlayInfo)) {
   play &lt;- puntPlays %&gt;% filter(gameId == puntPlayInfo$gameId[i] &amp; 
