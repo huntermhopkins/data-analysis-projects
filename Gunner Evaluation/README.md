@@ -55,12 +55,15 @@ Notice the gunner in the white jersey at the top of the screen make his way past
   
   * 0. Functions
   
+  
     * 0.1 Animate Random Play
     * 0.2 Animate Play
     * 0.3 Find Euclidean Distance
     * 0.4 Find Substring From End of String
   
+  
   * 1. Combining Data and Early Cleaning
+  
   
     * 1.1 Importing 2018 Data
     * 1.2 Clean 2018 Punt Plays
@@ -71,7 +74,9 @@ Notice the gunner in the white jersey at the top of the screen make his way past
       * 1.2.5 Add *teamAbbr* Variable
       * 1.2.6 Set The Return Yards to Zero on Plays That Resulted in a Fair Catch
   
+  
   * 2. Gathering Play Information
+  
   
     * 2.1 Imports
     * 2.2 Create New Dataframe to Store Important Play Information
@@ -79,6 +84,7 @@ Notice the gunner in the white jersey at the top of the screen make his way past
     * 2.4 Fill *kickDir* Column
     * 2.5 Fill *returnYds* and *specialTeamsResult* Columns
     * 2.6 Write to .csv
+  
   
   * 3. Collecting Gunner Data (Feature Engineering)
     * 3.1 Imports
@@ -106,6 +112,7 @@ Notice the gunner in the white jersey at the top of the screen make his way past
     * 3.17 Remove Unnecessary Variables
     * 3.18 Write to .csv
   
+  * 4. 
 </details>
 
 # Executive Summary
