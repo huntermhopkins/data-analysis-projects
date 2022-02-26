@@ -14,6 +14,8 @@ These two positions engage in a physical battle every play. It entails pushing, 
 
 ![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/gunner_example.gif)
 
+Notice the gunner in the white jersey at the top of the screen make his way past the two jammers defending him. After a quick shove and some nimble movement, he's able to blow by them and make a shoestring tackle on the returner.
+
 # Table of Contents
 <details open>
   <summary> Show/Hide</summary>
