@@ -170,9 +170,19 @@ Notice the gunner in the white jersey at the top of the screen make his way past
 
 ### Early Cleaning
   
-These charts show the number of gunners, jammers, and returners fieled in each play.
+These charts show the number of gunners, jammers, and returners fielded in each play. Based on these frequencies, I decided to only look at plays with 2 gunners, 2 jammers, and 1 returner. I did not think it was fair to judge a gunner going against one jammer in the same way as a gunner being double teamed. This also helped simplify many of the calculations made in the analysis.
 
 ![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/number_of_gunners.png)
 ![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/number_of_jammers.png)
 ![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/number_of_returners.png)
+  
+I also decided to remove punts that were muffed or dropped by the returner. I felt that there were a lot of variables that could lead to the punt being dropped outside of the gunner's control. A returner might drop the ball due to nerves, weather. or a moment's lapse of focus. Including these might muddy the results of the models.
+  
+### Feature Engineering
+The NFL's tracking data records each players x and y coordinates on the field every tenth of a second. A lot of insights can be made from this data, but it is not very useful in its raw state. My goal was to turn this data into useable measurements.
+  
+#### Time to Beat Jammer
+This measures the time it takes the gunner to get past the jammer defending them in seconds. The gunner must then be able to continuously stay past the jammer up until the ball is caught. If a gunner is able to get past their jammer quickly, they have a straight shot at the returner. This should either cause a fair catch or allow the gunner to make a quick tackle.
+  
+![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/time_to_beat.gif)
 </details>
