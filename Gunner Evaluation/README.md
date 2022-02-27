@@ -225,7 +225,11 @@ Once the ball is caught, gunners are trained to move towards the center of the f
   
 #### Release Types
 
-A release is essentially how the gunner moves off of the line of scrimmage. This can be classified in two ways. One way is either an inside or outside release. An inside release is when the gunner begins moving towards the center of the field, and an outside release is when they start moving towards the sideline. Another way I classified each gunner’s release was as correct or incorrect. A correct release would be releasing in the direction that gives the gunner the most direct route to the ball.
+A release is essentially how the gunner moves off of the line of scrimmage. This can be classified in two ways. One way is either an inside or outside release. An inside release is when the gunner begins moving towards the center of the field, and an outside release is when they start moving towards the sideline. Another way I classified each gunner’s release was as correct or incorrect. A correct release would be releasing in the direction that gives the gunner the most direct route to the ball. In the example below, both gunners would be taking the correct release asumming that the ball was kicked to the right.
+  
+Each release was classified as inside or outside by comparing the gunner's position to the jammer's position three seconds after the ball was snapped. This was to ensure that the gunner was actually moving in that direction and not just trying to misdirect the jammer.
+  
+Once each release was classified as inside or outside, it was possible to label it as correct or incorrect by comparing it with which side of the field the ball was kicked.
   
 <h5 align="center">Inside Release (Left) vs. Outside Release (Right)</h5>
 <table><tr><td><img src='https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/inside.gif' width=500></td><td><img src='https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/outside.gif' width=500></td></tr></table>
