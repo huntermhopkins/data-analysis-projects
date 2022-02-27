@@ -33,28 +33,28 @@ Notice the gunner in the white jersey at the top of the screen make his way past
   
 * [data](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/data): Folder containing all data files
   * **trackingData2018.csv**: Tracking data for all special team plays during the 2018 NFL season.
-  * trackingData2019.csv: Tracking data for all special team during the 2019 NFL season.
-  * trackingData2020.csv: Tracking data for all special team during the 2020 NFL season.
-  * plays.csv: Play-level information from each game.
-  * games.csv: Contains the teams playing in each game.
-  * PFFScoutingData.csv: Play-level scouting information provided by [PFF](https://www.pff.com/).
-  * punt_play_info.csv: Additional processed play-level information.
-  * punt_plays.csv: Combination of tracking data, play data, game data, and PFF data for punt plays.
-  * specialist_data.csv: Derived features for gunners and some play-level information.
-  * FMD_data.csv: Subset of specialist_data.csv containing only the first gunner down the field. Used for training model.
-  * gunner_stats_FCP.csv: Logistic model results showing the probability of a gunner causing a fair catch.
-  * gunner_stats_exYds.csv: Linear model results showing the expected return yards for each gunner.
+  * **trackingData2019.csv**: Tracking data for all special team during the 2019 NFL season.
+  * **trackingData2020.csv**: Tracking data for all special team during the 2020 NFL season.
+  * **plays.csv**: Play-level information from each game.
+  * **games.csv**: Contains the teams playing in each game.
+  * **PFFScoutingData.csv**: Play-level scouting information provided by [PFF](https://www.pff.com/).
+  * **punt_play_info.csv**: Additional processed play-level information.
+  * **punt_plays.csv**: Combination of tracking data, play data, game data, and PFF data for punt plays.
+  * **specialist_data.csv**: Derived features for gunners and some play-level information.
+  * **FMD_data.csv**: Subset of specialist_data.csv containing only the first gunner down the field. Used for training model.
+  * **gunner_stats_FCP.csv**: Logistic model results showing the probability of a gunner causing a fair catch.
+  * **gunner_stats_exYds.csv**: Linear model results showing the expected return yards for each gunner.
 * [images](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/images): Player headshots used in plots.
 * [notebooks](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/notebooks): R notebooks overviewing analysis process and code.
-    * 00_functions.html: Documentation of functions used throughout project
-    * 01_clean_raw_data.html: Condense data and process some variables
-    * 02_collect_punt_info.html: Processing and storing some important play-level information
-    * 03_collect_gunner_data.html: Engineering features for models
-    * 04_logistic_regression.html: Creating and evaluating logistic model
-    * 05_probability_of_fair_catch.html: Visualizing results of logistic model
-    * 06_linear_regression.html: Creating and evaluating linear model
-    * 07_expected_yards.html: Visualizing results of linear model
-    * 08_final_vis.html: Visualizing combined results of logistic and linear model
+    * **00_functions.html**: Documentation of functions used throughout project
+    * **01_clean_raw_data.html**: Condense data and process some variables
+    * **02_collect_punt_info.html**: Processing and storing some important play-level information
+    * **03_collect_gunner_data.html**: Engineering features for models
+    * **04_logistic_regression.html**: Creating and evaluating logistic model
+    * **05_probability_of_fair_catch.html**: Visualizing results of logistic model
+    * **06_linear_regression.html**: Creating and evaluating linear model
+    * **07_expected_yards.html**: Visualizing results of linear model
+    * **08_final_vis.html**: Visualizing combined results of logistic and linear model
 * [output](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/output): Model outputs and plots.
 </details>
 
