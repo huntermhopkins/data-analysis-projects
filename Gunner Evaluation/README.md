@@ -164,12 +164,11 @@ Notice the gunner in the white jersey at the top of the screen make his way past
 </details>
 
 # Executive Summary
+
+### Early Cleaning
 <details open>
 <summary>Show/Hide</summary>
 <br>
-
-### Early Cleaning
-  
 These charts show the number of gunners, jammers, and returners fielded in each play. Based on these frequencies, I decided to only look at plays with 2 gunners, 2 jammers, and 1 returner. I did not think it was fair to judge a gunner going against one jammer in the same way as a gunner being double teamed. This also helped simplify many of the calculations made in the analysis.
 
 ![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/number_of_gunners.png)
@@ -177,12 +176,59 @@ These charts show the number of gunners, jammers, and returners fielded in each 
 ![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/number_of_returners.png)
   
 I also decided to remove punts that were muffed or dropped by the returner. I felt that there were a lot of variables that could lead to the punt being dropped outside of the gunner's control. A returner might drop the ball due to nerves, weather. or a moment's lapse of focus. Including these might muddy the results of the models.
-  
+
+</details>
+
 ### Feature Engineering
+<details open>
+<summary>Show/Hide</summary>
+<br>
 The NFL's tracking data records each players x and y coordinates on the field every tenth of a second. A lot of insights can be made from this data, but it is not very useful in its raw state. My goal was to turn this data into useable measurements.
   
 #### Time to Beat Jammer
 This measures the time it takes the gunner to get past the jammer defending them in seconds. The gunner must then be able to continuously stay past the jammer up until the ball is caught. If a gunner is able to get past their jammer quickly, they have a straight shot at the returner. This should either cause a fair catch or allow the gunner to make a quick tackle.
   
+This is done by comparing the gunner's distance to the returner with the jammer's distance to the returner for each frame of the play. Once the gunner is closer to the returner and has beaten the jammer defending him, it's possible to find the time it has taken by dividing the frame number by ten.
+  
 ![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/time_to_beat.gif)
+  
+#### Distance from Line of Scrimmage
+This is the gunner’s distance from the line of scrimmage at the point of the ball being caught. A gunner who is able to make it further down the field should either be able to force a fair catch, or make a tackle quicker.
+  
+This is possible by finding the frame at which the ball is caught, and then finding the difference between the gunner's position and the line of scrimmage.
+
+![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/dis_from_los.gif)
+  
+#### Distance from Returner
+This is the gunner’s distance from the returner at the point of the ball being caught.
+  
+Again, I checked the distance between the jammer and the returner at the frame when the ball was caught
+  
+![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/dis_from_returner.gif)
+  
+#### Speed Deviation
+This is the standard deviation of a gunner’s speed up until the point of the ball being caught. My thinking is that a more consistent speed indicates that the gunner is skilled or strong enough to keep their top speed while the jammer pushes and pulls on them.
+  
+The tracking data also provides each player's speed at each frame. This made measuring this as easy as finding all of the frames up to the ball being caught, and taking the standard deviation of the speed.
+  
+![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/speed_dev.gif)
+  
+#### Top Speed
+This tracks a gunner’s top speed up until the ball is caught.
+  
+![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/speed.gif)
+  
+#### Squeeze Distance
+Once the ball is caught, gunners are trained to move towards the center of the field and push the returner towards the sideline. This creates a net for the rest of the team to trap the returner in. This measurement attempts to show how well a gunner is able to push the returner to the sideline by taking the difference between the returners position when they caught the ball, and their average position after they caught the ball.
+  
+![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/squeeze_dis.gif)
+  
+#### Release Types
+
+A release is essentially how the gunner moves off of the line of scrimmage. This can be classified in two ways. One way is either an inside or outside release. An inside release is when the gunner begins moving towards the center of the field, and an outside release is when they start moving towards the sideline. Another way I classified each gunner’s release was as correct or incorrect. A correct release would be releasing in the direction that gives the gunner the most direct route to the ball.
+  
+<h5 align="center">Inside vs. Outside Release</h5>
+<table><tr><td><img src='https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/inside.gif' width=500></td><td><img src='https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/outside.gif' width=500></td></tr></table>
+  
+
 </details>
