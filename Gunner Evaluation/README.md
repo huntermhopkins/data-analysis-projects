@@ -197,14 +197,14 @@ This is the gunner’s distance from the line of scrimmage at the point of the b
   
 This is possible by finding the frame at which the ball is caught, and then finding the difference between the gunner's position and the line of scrimmage.
 
-![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/dis_from_los.gif)
+![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/dis_los.gif)
   
 #### Distance from Returner
 This is the gunner’s distance from the returner at the point of the ball being caught.
   
 Again, I checked the distance between the jammer and the returner at the frame when the ball was caught
   
-![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/dis_from_returner.gif)
+![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/dis_returner.gif)
   
 #### Speed Deviation
 This is the standard deviation of a gunner’s speed up until the point of the ball being caught. My thinking is that a more consistent speed indicates that the gunner is skilled or strong enough to keep their top speed while the jammer pushes and pulls on them.
