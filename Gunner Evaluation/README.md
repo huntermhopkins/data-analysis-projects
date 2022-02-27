@@ -167,5 +167,12 @@ Notice the gunner in the white jersey at the top of the screen make his way past
 <details open>
 <summary>Show/Hide</summary>
 <br>
+
+### Early Cleaning
   
+These charts show the number of gunners, jammers, and returners fieled in each play.
+
+![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/number_of_gunners.png)
+![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/number_of_jammers.png)
+![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/number_of_returners.png)
 </details>
