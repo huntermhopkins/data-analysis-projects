@@ -46,6 +46,15 @@ Notice the gunner in the white jersey at the top of the screen make his way past
   * gunner_stats_exYds.csv: Linear model results showing the expected return yards for each gunner.
 * [images](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/images): Player headshots used in plots.
 * [notebooks](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/notebooks): R notebooks overviewing analysis process and code.
+    * 00_functions.html: Documentation of functions used throughout project
+    * 01_clean_raw_data.html: Condense data and process some variables
+    * 02_collect_punt_info.html: Processing and storing some important play-level information
+    * 03_collect_gunner_data.html: Engineering features for models
+    * 04_logistic_regression.html: Creating and evaluating logistic model
+    * 05_probability_of_fair_catch.html: Visualizing results of logistic model
+    * 06_linear_regression.html: Creating and evaluating linear model
+    * 07_expected_yards.html: Visualizing results of linear model
+    * 08_final_vis.html: Visualizing combined results of logistic and linear model
 * [output](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/output): Model outputs and plots.
 </details>
 
