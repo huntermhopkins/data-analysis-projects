@@ -32,7 +32,7 @@ Notice the gunner in the white jersey at the top of the screen make his way past
 <br>
   
 * [data](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/data): Folder containing all data files
-  * trackingData2018.csv: Tracking data for all special team plays during the 2018 NFL season.
+  * **trackingData2018.csv**: Tracking data for all special team plays during the 2018 NFL season.
   * trackingData2019.csv: Tracking data for all special team during the 2019 NFL season.
   * trackingData2020.csv: Tracking data for all special team during the 2020 NFL season.
   * plays.csv: Play-level information from each game.
