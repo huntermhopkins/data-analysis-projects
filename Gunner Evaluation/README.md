@@ -252,7 +252,7 @@ Using regression techniques, I will attempt to grade each gunner in two areas: b
 I created two logistic models to compare using forward-stepwise selection. This is a process of adding variables into the model one-by-one to select the variables with the most predictive power. The first model was selected using Akaike information criterion (AIC) as the selection criterion. The final variables selected were the time it takes the gunner to beat the jammer, their distance from the returner, their distance from the line of scrimmage, and their top speed.
 
 <details>
-<summary>Show Stepwise Selection Ouput</summary>
+<summary>Show/Hide Stepwise Selection Ouput</summary>
 <br>
 
 ```
@@ -316,7 +316,7 @@ I created two logistic models to compare using forward-stepwise selection. This 
 Next, I created another model using forward-stepwise selection, but this time with Bayesian Information Criterion (BIC) as the selection criterion. BIC is a more conservative selection criterion and should select less variables in the model. Having two models allows me to make comparisons and select the most accurate model. Using BIC ended up dropping top speed from the model.
   
 <details>
-<summary>Show Stepwise Selection Ouput</summary>
+<summary>Show/Hide Stepwise Selection Ouput</summary>
 <br>
 
 ```
@@ -373,7 +373,7 @@ Next, I created another model using forward-stepwise selection, but this time wi
 Looking at the model summaries, the model selected using AIC has a lower residual deviance value than the model selected using BIC. This indicates that the first model fits the data better. Additionally, the first model has a lower AIC value. This also indicates that it is the superior model.
 
 <details>
-<summary>Show Model Outputs</summary>
+<summary>Show/Hide Model Outputs</summary>
 <br>
   
 ##### Model Selected Using AIC
@@ -441,7 +441,7 @@ Looking at the model summaries, the model selected using AIC has a lower residua
 Because the two models are hierarchical, a Likelihood Ratio Test can be used to compare the models. The test shows that the p-value is 0.0444. This means the null hypothesis can be rejected at a .05 significance level, suggesting that the complex model (AIC) provides a better fit to the data.
 
 <details>
-<summary>Show LRT Results</summary>
+<summary>Show/Hide LRT Results</summary>
 <br>
   
 | Df         | LogLik     | Df       | Chisq    | Pr(>Chisq) |
