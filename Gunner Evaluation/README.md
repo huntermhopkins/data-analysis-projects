@@ -235,5 +235,78 @@ Once each release was classified as inside or outside, it was possible to label 
 <h5 align="center">Inside Release (Left) vs. Outside Release (Right)</h5>
 <table><tr><td><img src='https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/inside.gif' width=500></td><td><img src='https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/outside.gif' width=500></td></tr></table>
   
+#### Other Variables
+  Some other variables already provided in the data that I included were:
+  * Tackles - Designates whether the gunner made a tackle during the play
+  * Missed Tackles - Designates whether the gunner missed a tackle during the play
+</details>
+
+### Logistic Model
+<details open>
+<summary>Show/Hide</summary>
+<br>
+  
+#### Model Creation
+Using regression techniques, I will attempt to grade each gunner in two areas: before the ball is caught and after the ball is caught. To grade them before the ball is caught, I will be using a logistic regression model to estimate each gunners' probability of causing a fair catch. Forcing a fair catch is one of the most favorable outcomes for the punting team as it doesn't allow the receiving team to advance the ball at all.
+  
+I created two logistic models to compare using forward-stepwise selection. This is a process of adding variables into the model one-by-one to select the variables with the most predictive power. The first model was selected using Akaike information criterion (AIC) as the selection criterion.
+  
+```
+## Start:  AIC=2858.11
+## fairCatch ~ 1
+## 
+##                   Df Deviance    AIC
+## + timeToBeatVise   1   2421.6 2425.6
+## + disFromReturner  1   2463.4 2467.4
+## + release          1   2830.5 2834.5
+## + disFromLOS       1   2838.5 2842.5
+## + correctRelease   1   2847.3 2851.3
+## + topSpeed         1   2847.5 2851.5
+## + speedDev         1   2848.7 2852.7
+## <none>                 2856.1 2858.1
+## 
+## Step:  AIC=2425.58
+## fairCatch ~ timeToBeatVise
+## 
+##                   Df Deviance    AIC
+## + disFromReturner  1   2212.1 2218.1
+## + disFromLOS       1   2390.1 2396.1
+## + topSpeed         1   2408.7 2414.7
+## + speedDev         1   2417.9 2423.9
+## <none>                 2421.6 2425.6
+## + release          1   2420.7 2426.7
+## + correctRelease   1   2421.1 2427.1
+## 
+## Step:  AIC=2218.14
+## fairCatch ~ timeToBeatVise + disFromReturner
+## 
+##                  Df Deviance    AIC
+## + disFromLOS      1   2090.8 2098.8
+## + topSpeed        1   2157.4 2165.4
+## + speedDev        1   2195.9 2203.9
+## + release         1   2208.6 2216.6
+## <none>                2212.1 2218.1
+## + correctRelease  1   2212.1 2220.1
+## 
+## Step:  AIC=2098.81
+## fairCatch ~ timeToBeatVise + disFromReturner + disFromLOS
+## 
+##                  Df Deviance    AIC
+## + topSpeed        1   2086.8 2096.8
+## + speedDev        1   2087.7 2097.7
+## <none>                2090.8 2098.8
+## + release         1   2090.6 2100.6
+## + correctRelease  1   2090.6 2100.6
+## 
+## Step:  AIC=2096.77
+## fairCatch ~ timeToBeatVise + disFromReturner + disFromLOS + topSpeed
+## 
+##                  Df Deviance    AIC
+## <none>                2086.8 2096.8
+## + speedDev        1   2086.2 2098.2
+## + correctRelease  1   2086.6 2098.6
+## + release         1   2086.7 2098.7
+```
+  
 
 </details>
