@@ -241,7 +241,7 @@ Once each release was classified as inside or outside, it was possible to label 
   * Missed Tackles - Designates whether the gunner missed a tackle during the play
 </details>
 
-### Logistic Model
+### Logistic Regression Model
 <details open>
 <summary>Show/Hide</summary>
 <br>
@@ -250,7 +250,10 @@ Once each release was classified as inside or outside, it was possible to label 
 Using regression techniques, I will attempt to grade each gunner in two areas: before the ball is caught and after the ball is caught. To grade them before the ball is caught, I will be using a logistic regression model to estimate each gunners' probability of causing a fair catch. Forcing a fair catch is one of the most favorable outcomes for the punting team as it doesn't allow the receiving team to advance the ball at all.
   
 I created two logistic models to compare using forward-stepwise selection. This is a process of adding variables into the model one-by-one to select the variables with the most predictive power. The first model was selected using Akaike information criterion (AIC) as the selection criterion.
-  
+
+<details open>
+<summary>Show/Hide</summary>
+<br>
 ```
 ## Start:  AIC=2858.11
 ## fairCatch ~ 1
@@ -307,6 +310,6 @@ I created two logistic models to compare using forward-stepwise selection. This 
 ## + correctRelease  1   2086.6 2098.6
 ## + release         1   2086.7 2098.7
 ```
-  
+</details>  
 
 </details>
