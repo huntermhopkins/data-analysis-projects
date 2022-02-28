@@ -203,7 +203,7 @@ This is possible by finding the frame at which the ball is caught, and then find
 #### Distance from Returner
 This is the gunner’s distance from the returner at the point of the ball being caught.
   
-Again, I checked the distance between the jammer and the returner at the frame when the ball was caught
+Again, I checked the distance between the jammer and the returner at the frame when the ball was caught.
   
 ![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/dis_returner.gif)
   
