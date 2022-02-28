@@ -254,6 +254,7 @@ I created two logistic models to compare using forward-stepwise selection. This 
 <details>
 <summary>Show/Hide</summary>
 <br>
+
 ```
 ## Start:  AIC=2858.11
 ## fairCatch ~ 1
