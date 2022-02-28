@@ -407,7 +407,7 @@ Looking at the model summaries, the model selected using AIC has a lower residua
 ## Number of Fisher Scoring iterations: 5
 ```
                                                        
-##### Model Selected Using AIC
+##### Model Selected Using BIC
 ```
 ## 
 ## Call:
@@ -437,5 +437,18 @@ Looking at the model summaries, the model selected using AIC has a lower residua
 ```
   
 </details>
+  
+Because the two models are hierarchical, a Likelihood Ratio Test can be used to compare the models. The test shows that the p-value is 0.0444. This means the null hypothesis can be rejected at a .05 significance level, suggesting that the complex model (AIC) provides a better fit to the data.
 
+<details>
+<summary>Show LRT Results</summary>
+<br>
+  
+| Df         | LogLik     | Df       | Chisq    | Pr(>Chisq) |
+| ---------- | ---------- | -------- | -------- | ---------- |
+| 4          | -1045.405  |          |          |            |
+| 5          | -1043.385  | 1        | 4.041304 | 0.04439949 |
+  
+</details>
+ 
 </details>
