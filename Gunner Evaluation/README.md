@@ -249,10 +249,10 @@ Once each release was classified as inside or outside, it was possible to label 
 #### Model Creation
 Using regression techniques, I will attempt to grade each gunner in two areas: before the ball is caught and after the ball is caught. To grade them before the ball is caught, I will be using a logistic regression model to estimate each gunners' probability of causing a fair catch. Forcing a fair catch is one of the most favorable outcomes for the punting team as it doesn't allow the receiving team to advance the ball at all.
   
-I created two logistic models to compare using forward-stepwise selection. This is a process of adding variables into the model one-by-one to select the variables with the most predictive power. The first model was selected using Akaike information criterion (AIC) as the selection criterion. The final variables 
+I created two logistic models to compare using forward-stepwise selection. This is a process of adding variables into the model one-by-one to select the variables with the most predictive power. The first model was selected using Akaike information criterion (AIC) as the selection criterion. The final variables selected were the time it takes the gunner to beat the jammer, their distance from the returner, their distance from the line of scrimmage, and their top speed.
 
 <details>
-<summary>Stepwise Selection Ouput</summary>
+<summary>Show Stepwise Selection Ouput</summary>
 <br>
 
 ```
@@ -311,6 +311,131 @@ I created two logistic models to compare using forward-stepwise selection. This 
 ## + correctRelease  1   2086.6 2098.6
 ## + release         1   2086.7 2098.7
 ``` 
+</details>
+  
+Next, I created another model using forward-stepwise selection, but this time with Bayesian Information Criterion (BIC) as the selection criterion. BIC is a more conservative selection criterion and should select less variables in the model. Having two models allows me to make comparisons and select the most accurate model. Using BIC ended up dropping top speed from the model.
+  
+<details>
+<summary>Show Stepwise Selection Ouput</summary>
+<br>
+
+```
+## Start:  AIC=2863.76
+## fairCatch ~ 1
+## 
+##                   Df Deviance    AIC
+## + timeToBeatVise   1   2421.6 2436.9
+## + disFromReturner  1   2463.4 2478.7
+## + release          1   2830.5 2845.8
+## + disFromLOS       1   2838.5 2853.8
+## + correctRelease   1   2847.3 2862.6
+## + topSpeed         1   2847.5 2862.8
+## <none>                 2856.1 2863.8
+## + speedDev         1   2848.7 2864.0
+## 
+## Step:  AIC=2436.88
+## fairCatch ~ timeToBeatVise
+## 
+##                   Df Deviance    AIC
+## + disFromReturner  1   2212.1 2235.1
+## + disFromLOS       1   2390.1 2413.0
+## + topSpeed         1   2408.7 2431.6
+## <none>                 2421.6 2436.9
+## + speedDev         1   2417.9 2440.9
+## + release          1   2420.7 2443.6
+## + correctRelease   1   2421.1 2444.0
+## 
+## Step:  AIC=2235.09
+## fairCatch ~ timeToBeatVise + disFromReturner
+## 
+##                  Df Deviance    AIC
+## + disFromLOS      1   2090.8 2121.4
+## + topSpeed        1   2157.4 2188.0
+## + speedDev        1   2195.9 2226.5
+## <none>                2212.1 2235.1
+## + release         1   2208.6 2239.2
+## + correctRelease  1   2212.1 2242.7
+## 
+## Step:  AIC=2121.41
+## fairCatch ~ timeToBeatVise + disFromReturner + disFromLOS
+## 
+##                  Df Deviance    AIC
+## <none>                2090.8 2121.4
+## + topSpeed        1   2086.8 2125.0
+## + speedDev        1   2087.7 2125.9
+## + release         1   2090.6 2128.8
+## + correctRelease  1   2090.6 2128.9
+``` 
+</details>
+  
+#### Comparing Models
+
+Looking at the model summaries, the model selected using AIC has a lower residual deviance value than the model selected using BIC. This indicates that the first model fits the data better. Additionally, the first model has a lower AIC value. This also indicates that it is the superior model.
+
+<details>
+<summary>Show Model Outputs</summary>
+<br>
+  
+##### Model Selected Using AIC
+  
+```
+## 
+## Call:
+## glm(formula = fairCatch ~ timeToBeatVise + disFromReturner + 
+##     disFromLOS + topSpeed, family = "binomial", data = FMDData)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -2.9045  -0.7645   0.4366   0.7836   2.5075  
+## 
+## Coefficients:
+##                 Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)      9.76882    1.00781   9.693  < 2e-16 ***
+## timeToBeatVise  -0.45296    0.03313 -13.674  < 2e-16 ***
+## disFromReturner -0.16662    0.01072 -15.538  < 2e-16 ***
+## disFromLOS      -0.08949    0.01104  -8.109  5.1e-16 ***
+## topSpeed        -0.21651    0.10805  -2.004   0.0451 *  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 2856.1  on 2101  degrees of freedom
+## Residual deviance: 2086.8  on 2097  degrees of freedom
+## AIC: 2096.8
+## 
+## Number of Fisher Scoring iterations: 5
+```
+                                                       
+##### Model Selected Using AIC
+```
+## 
+## Call:
+## glm(formula = fairCatch ~ timeToBeatVise + disFromReturner + 
+##     disFromLOS, family = "binomial", data = FMDData)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -2.9385  -0.7702   0.4369   0.7836   2.5794  
+## 
+## Coefficients:
+##                  Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)      8.016199   0.481439   16.65   <2e-16 ***
+## timeToBeatVise  -0.433127   0.031153  -13.90   <2e-16 ***
+## disFromReturner -0.164789   0.010658  -15.46   <2e-16 ***
+## disFromLOS      -0.100603   0.009634  -10.44   <2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 2856.1  on 2101  degrees of freedom
+## Residual deviance: 2090.8  on 2098  degrees of freedom
+## AIC: 2098.8
+## 
+## Number of Fisher Scoring iterations: 5
+```
+  
 </details>
 
 </details>
