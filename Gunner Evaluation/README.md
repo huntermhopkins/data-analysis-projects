@@ -249,7 +249,7 @@ Once each release was classified as inside or outside, it was possible to label 
 #### Model Creation
 Using regression techniques, I will attempt to grade each gunner in two areas: before the ball is caught and after the ball is caught. To grade them before the ball is caught, I will be using a logistic regression model to estimate each gunners' probability of causing a fair catch. Forcing a fair catch is one of the most favorable outcomes for the punting team as it doesn't allow the receiving team to advance the ball at all.
   
-I created two logistic models to compare using forward-stepwise selection. This is a process of adding variables into the model one-by-one to select the variables with the most predictive power. The first model was selected using Akaike information criterion (AIC) as the selection criterion.
+I created two logistic models to compare using forward-stepwise selection. This is a process of adding variables into the model one-by-one to select the variables with the most predictive power. The first model was selected using Akaike information criterion (AIC) as the selection criterion. The final variables 
 
 <details>
 <summary>Show/Hide</summary>
@@ -309,7 +309,7 @@ I created two logistic models to compare using forward-stepwise selection. This 
 ## + speedDev        1   2086.2 2098.2
 ## + correctRelease  1   2086.6 2098.6
 ## + release         1   2086.7 2098.7
-```
-</details>  
+``` 
+</details>
 
 </details>
