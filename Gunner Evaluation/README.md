@@ -252,7 +252,7 @@ Using regression techniques, I will attempt to grade each gunner in two areas: b
 I created two logistic models to compare using forward-stepwise selection. This is a process of adding variables into the model one-by-one to select the variables with the most predictive power. The first model was selected using Akaike information criterion (AIC) as the selection criterion. The final variables 
 
 <details>
-<summary>Show/Hide</summary>
+<summary>Stepwise Selection Ouput</summary>
 <br>
 
 ```
