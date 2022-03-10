@@ -24,6 +24,27 @@ Notice the gunner in the white jersey at the top of the screen make his way past
 1. [File Descriptions](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/README.md#file-descriptions)
 2. [Structure of Notebooks](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/README.md#structure-of-notebooks)
 3. [Executive Summary](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/README.md#executive-summary)
+   * [1. Early Cleaning](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation#early-cleaning)
+   * [2. Feature Engineering](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation#feature-engineering)
+      * [Time to Beat Jammer](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation#time-to-beat-jammer)
+      * [Distance From Line of Scrimmage](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation#distance-from-line-of-scrimmage)
+      * [Distance From Returner](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation#distance-from-returner)
+      * [Speed Deviation](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation#speed-deviation)
+      * [Top Speed](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation#top-speed)
+      * [Squeeze Distance](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation#squeeze-distance)
+      * [Release Types](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation#release-types)
+      * [Other Variables](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation#other-variables)
+   * [3. Logistic Regression Model](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation#logistic-regression-model)
+      * [Model Creation](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation#model-creation)
+      * [Comparing Models](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation#comparing-models)
+      * [Model Evaluation](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation#model-evaluation)
+      * [Visualizing Model Results](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation#visualizing-model-results)
+   * [4. Linear Regresssion Model](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation#linear-regression-model)
+      * [Model Creation](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation#model-creation-1)
+      * [Model Evaluation](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation#model-evaluation-1)
+      * [Visualizing Model Results](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation#visualizing-model-results-1)
+   * [5. Visualizing Combined Results](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation#visualizing-combined-results)
+   * [6. Conclusions, Shortcomings, and Future Resarch](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation#conclusions-shortcomings-and-future-research)
 </details>
 
 # File Descriptions
@@ -32,12 +53,12 @@ Notice the gunner in the white jersey at the top of the screen make his way past
 <br>
 
 * [data](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/data): Folder containing all data files
-    * **trackingData2018.csv**: Tracking data for all special team plays during the 2018 NFL season.
-    * **trackingData2019.csv**: Tracking data for all special team during the 2019 NFL season.
-    * **trackingData2020.csv**: Tracking data for all special team during the 2020 NFL season.
-    * **plays.csv**: Play-level information from each game.
-    * **games.csv**: Contains the teams playing in each game.
-    * **PFFScoutingData.csv**: Play-level scouting information provided by [PFF](https://www.pff.com/).
+    * **trackingData2018.csv***†: Tracking data for all punt plays during the 2018 NFL season.
+    * **trackingData2019.csv***†: Tracking data for all punt plays during the 2019 NFL season.
+    * **trackingData2020.csv***†: Tracking data for all punt plays during the 2020 NFL season.
+    * **plays.csv***: Play-level information from each game.
+    * **games.csv***: Contains the teams playing in each game.
+    * **PFFScoutingData.csv***: Play-level scouting information provided by [PFF](https://www.pff.com/).
     * **punt_play_info.csv**: Additional processed play-level information.
     * **punt_plays.csv**: Combination of tracking data, play data, game data, and PFF data for punt plays.
     * **specialist_data.csv**: Derived features for gunners and some play-level information.
@@ -45,17 +66,21 @@ Notice the gunner in the white jersey at the top of the screen make his way past
     * **gunner_stats_FCP.csv**: Logistic model results showing the probability of a gunner causing a fair catch.
     * **gunner_stats_exYds.csv**: Linear model results showing the expected return yards for each gunner.
 * [images](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/images): Player headshots used in plots.
-* [notebooks](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/notebooks): R notebooks overviewing analysis process and code.
-    * **00_functions.html**: Documentation of functions used throughout project
-    * **01_clean_raw_data.html**: Condense data and process some variables
-    * **02_collect_punt_info.html**: Processing and storing some important play-level information
-    * **03_collect_gunner_data.html**: Engineering features for models
-    * **04_logistic_regression.html**: Creating and evaluating logistic model
-    * **05_probability_of_fair_catch.html**: Visualizing results of logistic model
-    * **06_linear_regression.html**: Creating and evaluating linear model
-    * **07_expected_yards.html**: Visualizing results of linear model
-    * **08_final_vis.html**: Visualizing combined results of logistic and linear model
+* [R](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/notebooks): R scripts containing all code.
+    * **00_source.R**: Documentation of functions used throughout project
+    * **01_clean_raw_data.R**: Condense data and process some variables
+    * **02_collect_punt_info.R**: Processing and storing some important play-level information
+    * **03_collect_gunner_data.R**: Engineering features for models
+    * **04_logistic_regression.R**: Creating and evaluating logistic model
+    * **05_probability_of_fair_catch.R**: Visualizing results of logistic model
+    * **06_linear_regression.R**: Creating and evaluating linear model
+    * **07_expected_yards.R**: Visualizing results of linear model
+    * **08_final_vis.R**: Visualizing combined results of logistic and linear model
 * [output](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/output): Model outputs and plots.
+   
+   
+\* Data is part of the original provided data set. <br>  
+† Original tracking data included all special teams plays (punts, field goals, kickoffs). This was reduced to only include punt plays to minimize file sizes.
 </details>
 
 # Structure of Notebooks
@@ -72,12 +97,12 @@ Notice the gunner in the white jersey at the top of the screen make his way past
 1. Combining Data and Early Cleaning
     * 1.1 Importing 2018 Data
     * 1.2 Clean 2018 Punt Plays
-    * 1.2.1 Exploring How Many Gunners, Jammers, and Returners are Usually Fielded
-    * 1.2.2 Condense Play Selection
-    * 1.2.3 Remove Rows with NAs in Certain Columns
-    * 1.2.4 Flip Plays
-    * 1.2.5 Add *teamAbbr* Variable
-    * 1.2.6 Set The Return Yards to Zero on Plays That Resulted in a Fair Catch
+      * 1.2.1 Exploring How Many Gunners, Jammers, and Returners are Usually Fielded
+      * 1.2.2 Condense Play Selection
+      * 1.2.3 Remove Rows with NAs in Certain Columns
+      * 1.2.4 Flip Plays
+      * 1.2.5 Add *teamAbbr* Variable
+      * 1.2.6 Set The Return Yards to Zero on Plays That Resulted in a Fair Catch
 
 2. Gathering Play Information
     * 2.1 Imports
@@ -91,7 +116,7 @@ Notice the gunner in the white jersey at the top of the screen make his way past
     * 3.1 Imports
     * 3.2 Create New Dataframe to Store Gunner Data
     * 3.3 Store Identifying Information for Gunners and Jammers
-    * 3.3.1 Remove Plays with Missing Player IDs
+      * 3.3.1 Remove Plays with Missing Player IDs
     * 3.4 Remove Odd Plays
     * 3.5 Match Gunners to Jammer Defending Them
     * 3.6 Fill *returnYds* and *specialTeamsResult* Columns
@@ -105,11 +130,11 @@ Notice the gunner in the white jersey at the top of the screen make his way past
     * 3.14 Record if Gunner Made a Tackle
     * 3.15 Record if Gunner Missed a Tackle
     * 3.16 Record Gunner Release Types
-    * 3.16.1 Record Which Side of the Field Each Gunner is Lined Up
-    * 3.16.2 Classify as Inside or Outside
-    * 3.16.3 Record Kick Direction Relative to Gunner's Position
-    * 3.16.4 Categorize Each Release Type
-    * 3.16.5 Categorize Each Release as Correct or Incorrect
+      * 3.16.1 Record Which Side of the Field Each Gunner is Lined Up
+      * 3.16.2 Classify as Inside or Outside
+      * 3.16.3 Record Kick Direction Relative to Gunner's Position
+      * 3.16.4 Categorize Each Release Type
+      * 3.16.5 Categorize Each Release as Correct or Incorrect
     * 3.17 Remove Unnecessary Variables
     * 3.18 Write to .csv
 
@@ -119,19 +144,20 @@ Notice the gunner in the white jersey at the top of the screen make his way past
     * 4.3 Subset Data to Only Include First Man Down
     * 4.4 Create Models
     * 4.5 Compare Models
-    * 4.5.1 Model Summaries
-    * 4.5.2 Likelihood Ratio Test
+      * 4.5.1 Model Summaries
+      * 4.5.2 Likelihood Ratio Test
     * 4.6 Evaluate Model
     * 4.7 Conclusion
     * 4.8 Write to .csv
+    * 4.9 Save Plot
 
 5. Visualizing Logistic Model Results
     * 5.1 Imports
     * 5.2 Record Model Results
-    * 5.2.1 Create Dataframe to Store Gunner Data
-    * 5.2.2 Record Gunner Averages
-    * 5.2.3 Predict Probability of Causing a Fair Catch Based on Averages
-    * 5.2.4 Filter to Gunners Who Played in at Least 30 Plays
+      * 5.2.1 Create Dataframe to Store Gunner Data
+      * 5.2.2 Record Gunner Averages
+      * 5.2.3 Predict Probability of Causing a Fair Catch Based on Averages
+      * 5.2.4 Filter to Gunners Who Played in at Least 30 Plays
     * 5.3 Visualization
     * 5.4 Write to .csv
     * 5.5 Save Plot
@@ -140,18 +166,18 @@ Notice the gunner in the white jersey at the top of the screen make his way past
     * 6.1 Imports
     * 6.2 Model Creation
     * 6.3 Model Evaulation
-    * 6.3.1 Checking For Collinearity
-    * 6.3.2 Summarizing Model
+      * 6.3.1 Checking For Collinearity
+      * 6.3.2 Summarizing Model
     * 6.4 Conclusion
 
 
 7. Visualizing Logistic Model Results
     * 7.1 Imports
     * 7.2 Record Model Results
-    * 7.2.1 Create Dataframe to Store Gunner Data
-    * 7.2.2 Record Gunner Averages
-    * 7.2.3 Predict Expected Yards Given Up Based on Averages
-    * 7.2.4 Filter to Gunners Who Played in at Least 30 Plays
+      * 7.2.1 Create Dataframe to Store Gunner Data
+      * 7.2.2 Record Gunner Averages
+      * 7.2.3 Predict Expected Yards Given Up Based on Averages
+      * 7.2.4 Filter to Gunners Who Played in at Least 30 Plays
     * 7.3 Visualization
     * 7.4 Write to .csv
     * 7.5 Save Plot
@@ -193,14 +219,14 @@ This is done by comparing the gunner's distance to the returner with the jammer'
 
 ![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/time_to_beat.gif)
 
-#### Distance from Line of Scrimmage
+#### Distance From Line of Scrimmage
 This is the gunner’s distance from the line of scrimmage at the point of the ball being caught. A gunner who is able to make it further down the field should either be able to force a fair catch, or make a tackle quicker.
 
 This is possible by finding the frame at which the ball is caught, and then finding the difference between the gunner's position and the line of scrimmage.
 
 ![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/dis_los.gif)
 
-#### Distance from Returner
+#### Distance From Returner
 This is the gunner’s distance from the returner at the point of the ball being caught.
 
 Again, I checked the distance between the jammer and the returner at the frame when the ball was caught.
@@ -449,18 +475,18 @@ Because the two models are hierarchical, a Likelihood Ratio Test can be used to 
 | 5          | -1043.385  | 1        | 4.041304 | 0.04439949 |
 </details>
 
-#### Evaluate Model
+#### Model Evaluation
 
 To estimate the accuracy of the model, the data was split into a training and testing set. The model is trained on the training set and the values in the testing set are fitted using the resulting model. The use of a logistic regression model ensures that the fitted values are between 0 and 1, representing the probability of the play resulting in a fair catch. These estimated probabilities are compared to a cut-off point, in this case 0.5, to classify each observation as a fair catch or return. Any probability greater than 0.5 is classified as a fair catch and anything lower than 0.5 is classified as a return according to the model. The model's predicted classifications are then compared to the true classifications in the testing set. Furthermore, this process was done using k-fold cross validation. This allows for this accuracy test to be performed on a number of training and testing sets to give a more accurate estimation.
 
 The results can be seen in the confusion matrix below. Out of 2102 plays, the model correctly classified 1035 plays that resulted in a fair catch and 545 plays that resulted in a return. 190 plays that resulted in a fair catch were predicted to be returned and 332 plays that were returned were predicted to have resulted in a fair catch. This gives the model an accuracy of about 75.17%.
 
-[]!()
+![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/confusion_matrix.png)
 
 #### Visualizing Model Results
 I then took the per game averages of each gunner for these predictor variables. These averages were fitted using the model to show the best gunners in the NFL during the 2018-2020 seasons based on their predicted probability of causing a fair catch.
 
-[]!()
+![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/FCP.png)
 </details>
 
 ### Linear Regression Model
@@ -470,7 +496,7 @@ I then took the per game averages of each gunner for these predictor variables. 
 
 To evaluate the gunners' performance after the ball is caught, I will be adding the squeeze distance, tackles, and missed tackles variables to a linear model. The previous variables discussed will still be included because they will have an impact on what happens after the catch. This model will attempt to predict how many return yards a gunner will give up in the event that the ball is returned.
 
-##### Model Creation
+#### Model Creation
 Similar to the logistic regression model, I will be using forward stepwise selection to pick out the variables with the most predictive power. These turned out to be the time it takes the gunner to beat their jammer, their distance from the returner, their speed deviation, their distance from the line of scrimmage, and the number of tackles they missed.
 
 <details>
@@ -619,7 +645,7 @@ The model summary shows that each variable is significant to the model based on 
 
 Again, I took the per-game averages for each gunner and fit these with the model. Below are the top ten gunners in expected return yards between the 2018-2020 NFL seasons.
 
-![]()
+![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/expected_yards.png)
 </details>
 
 ### Visualizing Combined Results
@@ -629,7 +655,7 @@ Again, I took the per-game averages for each gunner and fit these with the model
 
 These two new measurements: probability of causing a fair catch and expected return yards given up can be combined to show how each gunner performs in each area. The inverse of the probability of causing a fair catch is plotted instead, which is the probability of allowing a return. This allows both measurements to be read the same way (lower number is better, higher number is worse). Players like Justin Bethel, Mack Hollins, Tavierre Thomas, and Matthew Slater perform well overall. Players like Sherrick McManis allow few return yards when the ball is returned, but might need to work on beating their man to force more fair catches.
 
-![]()
+![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/final_vis.png)
 </details>
 
 ### Conclusions, Shortcomings, and Future Research
