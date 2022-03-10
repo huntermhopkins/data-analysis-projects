@@ -35,6 +35,22 @@ str(mergedData)
 # Clean punt plays
 ###########################################
 
+# exploring how many gunners, jammers, and returners are usually fielded
+ggplot(data=PFFData, aes(x=str_count(gunners, ';') + 1)) +
+  geom_bar(stat="count", fill = "steelblue") +
+  ggtitle("Number of Gunners in Each Play") +
+  xlab("Number of Gunners Fielded")
+
+ggplot(data=PFFData, aes(x=str_count(vises, ';') + 1)) +
+  geom_bar(stat="count", fill = "steelblue") +
+  ggtitle("Number of Jammers in Each Play") +
+  xlab("Number of Jammers Fielded")
+
+ggplot(data=playData, aes(x=str_count(returnerId, ';') + 1)) +
+  geom_bar(stat="count", fill = "steelblue") +
+  ggtitle("Number of Returners in Each Play") +
+  xlab("Number of Returners Fielded")
+
 # subset to punt plays with 1-on-1 matchups and 1 returner
 puntPlays <- (mergedData %>% filter(specialTeamsPlayType == 'Punt' &
                                       specialTeamsResult != 'Muffed' &
