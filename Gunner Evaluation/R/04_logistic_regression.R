@@ -93,7 +93,7 @@ for (i in 1:k) {
   
   fSelectedLogitAIC <- glm(fairCatch ~ timeToBeatVise + disFromReturner + disFromLOS + topSpeed, 
                            family = "binomial", 
-                           data = FMDData)
+                           data = train)
   
   fitted.results <- predict(fSelectedLogitAIC,newdata = valid,type = 'response')
   fitted.results <- ifelse(fitted.results > 0.5,1,0)
