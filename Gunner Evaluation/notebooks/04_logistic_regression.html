@@ -472,13 +472,13 @@ ggplot(confusionDF, aes(x = trueClass, y = predictedClass)) +
 <h2>4.7 Conclusion</h2>
 <p>The model is not superbly accurate. However, I believe it is accurate enough to provide useful insights, and be used in conjunction with a coach’s or general manager’s intuition.</p>
 </div>
-<div id="save-plot" class="section level2">
-<h2>4.8 Save Plot</h2>
-<pre class="r"><code>ggsave(&quot;confusion_matrix.png&quot;, path = here(&quot;output&quot;), width = 9.7082, height = 6)</code></pre>
-</div>
 <div id="write-to-.csv" class="section level2">
-<h2>4.9 Write to .csv</h2>
+<h2>4.8 Write to .csv</h2>
 <pre class="r"><code>write.csv(FMDData, file = here(&quot;data&quot;, &quot;FMD_data.csv&quot;), row.names = FALSE)</code></pre>
+</div>
+<div id="save-plot" class="section level2">
+<h2>4.9 Save Plot</h2>
+<pre class="r"><code>ggsave(&quot;confusion_matrix.png&quot;, path = here(&quot;output&quot;), width = 9.7082, height = 6)</code></pre>
 </div>
 
 
