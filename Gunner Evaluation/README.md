@@ -53,12 +53,12 @@ Notice the gunner in the white jersey at the top of the screen make his way past
 <br>
 
 * [data](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/data): Folder containing all data files
-    * **trackingData2018.zip**: Tracking data for all special team plays during the 2018 NFL season.
-    * **trackingData2019.zip**: Tracking data for all special team during the 2019 NFL season.
-    * **trackingData2020.zip**: Tracking data for all special team during the 2020 NFL season.
-    * **plays.csv**: Play-level information from each game.
-    * **games.csv**: Contains the teams playing in each game.
-    * **PFFScoutingData.csv**: Play-level scouting information provided by [PFF](https://www.pff.com/).
+    * **trackingData2018.zip***†: Tracking data for all punt plays during the 2018 NFL season.
+    * **trackingData2019.zip***†: Tracking data for all punt plays during the 2019 NFL season.
+    * **trackingData2020.zip***†: Tracking data for all punt plays during the 2020 NFL season.
+    * **plays.csv***: Play-level information from each game.
+    * **games.csv***: Contains the teams playing in each game.
+    * **PFFScoutingData.csv***: Play-level scouting information provided by [PFF](https://www.pff.com/).
     * **punt_play_info.csv**: Additional processed play-level information.
     * **punt_plays.zip**: Combination of tracking data, play data, game data, and PFF data for punt plays.
     * **specialist_data.csv**: Derived features for gunners and some play-level information.
@@ -66,7 +66,7 @@ Notice the gunner in the white jersey at the top of the screen make his way past
     * **gunner_stats_FCP.csv**: Logistic model results showing the probability of a gunner causing a fair catch.
     * **gunner_stats_exYds.csv**: Linear model results showing the expected return yards for each gunner.
 * [images](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/images): Player headshots used in plots.
-* [R](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/notebooks): R notebooks overviewing analysis process and code.
+* [R](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/R): R scripts containing all code.
     * **00_source.R**: Documentation of functions used throughout project
     * **01_clean_raw_data.R**: Condense data and process some variables
     * **02_collect_punt_info.R**: Processing and storing some important play-level information
@@ -76,7 +76,11 @@ Notice the gunner in the white jersey at the top of the screen make his way past
     * **06_linear_regression.R**: Creating and evaluating linear model
     * **07_expected_yards.R**: Visualizing results of linear model
     * **08_final_vis.R**: Visualizing combined results of logistic and linear model
+* [notebooks](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/notebooks): R notebooks overviewing analysis process and code. Download and open each file for a more detailed summary.
 * [output](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/output): Model outputs and plots.
+ 
+ \* Data is part of the original provided data set. <br>
+ † Orignal tracking data included all special teams plays (punts, field goals, kickoffs). This was reduced to only punt plays to minimize file sizes.
 </details>
 
 # Structure of Notebooks
