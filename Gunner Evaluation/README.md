@@ -65,7 +65,7 @@ Notice the gunner in the white jersey at the top of the screen make his way past
     * **FMD_data.csv**: Subset of specialist_data.csv containing only the first gunner down the field. Used for training model.
     * **gunner_stats_FCP.csv**: Logistic model results showing the probability of a gunner causing a fair catch.
     * **gunner_stats_exYds.csv**: Linear model results showing the expected return yards for each gunner.
-* [images](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/images): Player headshots used in plots.
+* [images](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/images): Player headshots used in plots. Courtesy of [ESPN.com](https://www.espn.com/)
 * [R](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/R): R scripts containing all code.
     * **00_source.R**: Documentation of functions used throughout project
     * **01_clean_raw_data.R**: Condense data and process some variables
