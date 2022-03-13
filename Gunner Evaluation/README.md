@@ -14,7 +14,7 @@ These two positions engage in a physical battle every play. It involves pushing,
 
 ![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/gunner_example.gif)
 
-Notice the gunner in the white jersey at the top of the screen make his way past the two jammers defending him. After a quick shove and some nimble movement, he's able to blow by them and make a shoestring tackle on the returner.
+Notice the gunner in the white jersey towards the top of the screen make his way past the two jammers defending him. After a quick shove and some nimble movement, he's able to blow by them and make a shoestring tackle on the returner.
 
 # Table of Contents
 <details open>
@@ -476,14 +476,14 @@ Because the two models are hierarchical, a Likelihood Ratio Test can be used to 
 
 #### Model Evaluation
 
-To estimate the accuracy of the model, the data was split into a training and testing set. The model is trained on the training set and the values in the testing set are fitted using the resulting model. The use of a logistic regression model ensures that the fitted values are between 0 and 1, representing the probability of the play resulting in a fair catch. These estimated probabilities are compared to a cut-off point, in this case 0.5, to classify each observation as a fair catch or return. Any probability greater than 0.5 is classified as a fair catch and anything lower than 0.5 is classified as a return according to the model. The model's predicted classifications are then compared to the true classifications in the testing set. Furthermore, this process was done using k-fold cross validation. This allows for this accuracy test to be performed on a number of training and testing sets to give a more accurate estimation.
+To estimate the accuracy of the model, the data was split into a training and testing set. The model is trained on the training set and the values in the testing set are put into the resulting model. The use of a logistic regression model ensures that the fitted values are between 0 and 1, representing the probability of the play resulting in a fair catch. These estimated probabilities are compared to a cut-off point, in this case 0.5, to classify each observation as a fair catch or return. Any probability greater than 0.5 is classified as a fair catch and anything lower than 0.5 is classified as a return according to the model. The model's predicted classifications are then compared to the true classifications in the testing set. Furthermore, this process was done using k-fold cross validation. This allows for this accuracy test to be performed on a number of training and testing sets to give a more accurate estimation.
 
 The results can be seen in the confusion matrix below. Out of 2102 plays, the model correctly classified 1035 plays that resulted in a fair catch and 545 plays that resulted in a return. 190 plays that resulted in a fair catch were predicted to be returned and 332 plays that were returned were predicted to have resulted in a fair catch. This gives the model an accuracy of about 75.17%.
 
 ![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/confusion_matrix.png)
 
 #### Visualizing Model Results
-I then took the per game averages of each gunner for these predictor variables. These averages were fitted using the model to show the best gunners in the NFL during the 2018-2020 seasons based on their predicted probability of causing a fair catch.
+I then took the per game averages of each gunner for these predictor variables. These averages were fed into the model to show the best gunners in the NFL during the 2018-2020 seasons based on their predicted probability of causing a fair catch.
 
 ![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/FCP.png)
 </details>
@@ -606,10 +606,10 @@ The model selected both the distance from returner and the distance from the lin
 ```
 </details>
 
-The model summary shows that each variable is significant to the model based on their low p-values. However, the model's adjusted $R{2}$ is very low at 0.1235. This means that the model can only account for 12.35% of the variability in the data. The low adjusted $R{2}$ combined with the significant variables tells me that the variables selected have predictive power, but more variables need to be included in the model to improve accuracy.
+The model summary shows that each variable is significant to the model based on their low p-values. However, the model's adjusted R-squared is very low at 0.1235. This means that the model can only account for 12.35% of the variability in the data. The low adjusted R-squared combined with the significant variables tells me that the variables selected have predictive power, but more variables need to be included in the model to improve accuracy.
 
 <details>
-<summary>Show/Hide VIF</summary>
+<summary>Show/Hide Model Summary</summary>
 <br>
 
 ```
@@ -642,7 +642,7 @@ The model summary shows that each variable is significant to the model based on 
 
 #### Visualizing Model Results
 
-Again, I took the per-game averages for each gunner and fit these with the model. Below are the top ten gunners in expected return yards between the 2018-2020 NFL seasons.
+Again, I took the per-game averages for each gunner and put these into the model. Below are the top ten gunners in expected return yards between the 2018-2020 NFL seasons.
 
 ![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/expected_yards.png)
 </details>
