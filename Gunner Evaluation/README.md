@@ -202,7 +202,7 @@ These charts show the number of gunners, jammers, and returners fielded in each 
 ![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/number_of_jammers.png)
 ![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Gunner%20Evaluation/output/number_of_returners.png)
 
-I also decided to remove punts that were muffed or dropped by the returner. I felt that there were a lot of variables that could lead to the punt being dropped outside of the gunner's control. A returner might drop the ball due to nerves, weather. or a moment's lapse of focus. Including these might muddy the results of the models.
+I also decided to remove punts that were muffed or dropped by the returner. I felt that there were a lot of variables that could lead to the punt being dropped outside of the gunner's control. A returner might drop the ball due to nerves, weather, or a moment's lapse of focus. Including these might muddy the results of the models.
 </details>
 
 ### Feature Engineering
