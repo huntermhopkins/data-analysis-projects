@@ -209,7 +209,7 @@ I also decided to remove punts that were muffed or dropped by the returner. I fe
 <details open>
 <summary>Show/Hide</summary>
 <br>
-The NFL's tracking data records each players x and y coordinates on the field every tenth of a second. A lot of insights can be made from this data, but it is not very useful in its raw state. My goal was to turn this data into useable measurements.
+The NFL's tracking data records each players x and y coordinates on the field every tenth of a second. A lot of insights can be made from this data, but it is not very useful in its raw state. My goal was to turn this data into usable measurements.
 
 #### Time to Beat Jammer
 This measures the time it takes the gunner to get past the jammer defending them in seconds. The gunner must then be able to continuously stay past the jammer up until the ball is caught. If a gunner is able to get past their jammer quickly, they have a straight shot at the returner. This should either cause a fair catch or allow the gunner to make a quick tackle.
