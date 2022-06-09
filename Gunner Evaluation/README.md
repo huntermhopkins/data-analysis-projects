@@ -76,7 +76,7 @@ Notice the gunner in the white jersey towards the top of the screen make his way
     * **06_linear_regression.R**: Creating and evaluating linear model
     * **07_expected_yards.R**: Visualizing results of linear model
     * **08_final_vis.R**: Visualizing combined results of logistic and linear model
-* [notebooks](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/notebooks): R notebooks overviewing analysis process and code. Download and open each file for a more detailed summary.
+* [notebooks](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/notebooks): Jupyter notebooks overviewing analysis process and code.
 * [output](https://github.com/huntermhopkins/data-analysis-projects/tree/main/Gunner%20Evaluation/output): Model outputs and plots.
  
  \* Data is part of the original provided data set. <br>
