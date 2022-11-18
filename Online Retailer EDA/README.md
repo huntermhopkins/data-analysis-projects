@@ -141,7 +141,7 @@ While organizing this sheet, I realized that one more column had to be fixed. So
 <br>
 
 ### Business Suggestions
-Based on the data, I believe this retailer is based in the United Kingdom. Their sales in the U.K. dwarf any other country, and the countries that round out the top 5 are European. Despite their astronomical sales in their probable home country, I would recommend that the retailer makes a push to increase sales in other countries. Specifically, Ireland and The Netherlands. In these countries, the retailer makes much more money per customer. If they are able to increase the number of customers in these countries, they should see a much higher rise in revenue than if they attracted more customers in the U.K.
+Based on the data, I believe this retailer is based in the United Kingdom. Their sales in the U.K. dwarf any other country, and the countries that round out the top 5 are European. Despite their astronomical sales in their probable home country, I would recommend that the retailer makes a push to increase sales in other countries. Specifically, Ireland and The Netherlands. In these countries, the retailer makes much more money per customer. If they are able to increase the number of customers in these countries, they should see a much higher rise in revenue than if they attracted more customers in the U.K. Doubling the number of customers in Ireland and The Netherlands, which is only 13 more customers could result in a revenue increase of 305,930 per year.
 
 ![](https://github.com/huntermhopkins/data-analysis-projects/blob/main/Online%20Retailer%20EDA/images/revenue_per_customer.PNG)
 
